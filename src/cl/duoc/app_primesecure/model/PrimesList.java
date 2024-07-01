@@ -25,7 +25,7 @@ public class PrimesList extends ArrayList<Integer> {
 
     // Sobrescribir método add
     @Override
-    public boolean add(Integer numero) {
+    public synchronized boolean add(Integer numero) {
         if (isPrime(numero)) {
             return super.add(numero);
         } else {
@@ -35,7 +35,7 @@ public class PrimesList extends ArrayList<Integer> {
 
     // Sobrescribir método remove
     @Override
-    public boolean remove(Object numero) {
+    public synchronized boolean remove(Object numero) {
         if (numero instanceof Integer && isPrime((Integer) numero)) {
             return super.remove(numero);
         } else {
@@ -44,7 +44,7 @@ public class PrimesList extends ArrayList<Integer> {
     }
 
     // Método para obtener la cantidad de números primos en la lista
-    public int getPrimesCount() {
+    public synchronized int getPrimesCount() {
         return this.size();
     }
 }
